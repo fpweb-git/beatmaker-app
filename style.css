@@ -12,7 +12,7 @@ i,svg{
     pointer-events: none;
 }
 
-.kick-pad,.snare-pad,.hihat-pad{
+.kick-pad,.snare-pad,.hihat-pad,.perc-pad,.loop-pad{
     width: 5rem;
     height: 5rem;
     margin: 1rem 0.5rem;
@@ -40,6 +40,20 @@ i,svg{
     background: rgb(253, 112, 208);
 }
 
+.perc-pad{
+    background: rgb(253, 216, 216);
+}
+.perc-pad.active{
+    background: rgb(253, 112, 112);
+}
+
+.loop-pad{
+    background: rgb(216, 250, 253);
+}
+.loop-pad.active{
+    background: rgb(112, 248, 253);
+}
+
 .sequencer{
     display: flex;
     min-height: 100vh;
@@ -48,7 +62,7 @@ i,svg{
     justify-content: center;
 }
 
-.hihat-track,.snare-track,.kick-track{
+.hihat-track,.snare-track,.kick-track,.perc-track,.loop-track{
     display: flex;
     align-items: center;
     width: 70%;
@@ -56,7 +70,7 @@ i,svg{
     margin-top: 5rem;
 }
 
-.kick,.snare,.hihat{
+.kick,.snare,.hihat,.perc,.loop{
     display: flex;
 }
 

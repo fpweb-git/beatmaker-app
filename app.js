@@ -2,12 +2,16 @@ class DrumKit {
 	constructor() {
 		this.pads = document.querySelectorAll(".pad");
 		this.playBtn = document.querySelector(".play");
-		this.currentKick = "./sounds/kick-classic.wav";
-		this.currentSnare = "./sounds/snare-acoustic01.wav";
-		this.currentHihat = "./sounds/hihat-acoustic01.wav";
+		this.currentKick = "./sounds/kick/kick-1.wav";
+		this.currentSnare = "./sounds/snare/snare-1.wav";
+		this.currentHihat = "./sounds/hat/hat-1.wav";
+		this.currentPerc = "./sounds/perc/perc-1.wav";
+		this.currentLoop = "./sounds/loops/loop-1.wav";
 		this.kickAudio = document.querySelector(".kick-sound");
 		this.snareAudio = document.querySelector(".snare-sound");
 		this.hihatAudio = document.querySelector(".hihat-sound");
+		this.percAudio = document.querySelector(".perc-sound");
+		this.loopAudio = document.querySelector(".loop-sound");
 		this.index = 0;
 		this.bpm = 150;
 		this.isPlaying = null;
@@ -38,6 +42,14 @@ class DrumKit {
 				if (bar.classList.contains("hihat-pad")) {
 					this.hihatAudio.currentTime = 0;
 					this.hihatAudio.play();
+				}
+				if (bar.classList.contains("perc-pad")) {
+					this.percAudio.currentTime = 0;
+					this.percAudio.play();
+				}
+				if (bar.classList.contains("loop-pad")) {
+					this.percAudio.currentTime = 0;
+					this.loopAudio.play();
 				}
 			}
 		});
@@ -78,6 +90,12 @@ class DrumKit {
 			case "hihat-select":
 				this.hihatAudio.src = selectionValue;
 				break;
+			case "perc-select":
+				this.percAudio.src = selectionValue;
+				break;
+			case "loop-select":
+				this.loopAudio.src = selectionValue;
+				break;
 		}
 	}
 	mute(e) {
@@ -94,6 +112,12 @@ class DrumKit {
 				case "2":
 					this.hihatAudio.volume = 0;
 					break;
+				case "3":
+					this.percAudio.volume = 0;
+					break;
+				case "4":
+					this.loopAudio.volume = 0;
+					break;
 			}
 		} else {
 			switch (muteIndex) {
@@ -105,6 +129,12 @@ class DrumKit {
 					break;
 				case "2":
 					this.hihatAudio.volume = 1;
+					break;
+				case "3":
+					this.percAudio.volume = 1;
+					break;
+				case "4":
+					this.loopAudio.volume = 1;
 					break;
 			}
 		}
